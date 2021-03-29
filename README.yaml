@@ -1,0 +1,64 @@
+---
+#
+# This is the canonical configuration for the `README.md`
+# Run `make readme` to rebuild the `README.md`
+#
+
+# Name of this project
+name: terraform-aws-vpc-managed
+
+# License of this project
+license: "APACHE2"
+
+# Canonical GitLab repo
+gitlab_repo: guardianproject-ops/terraform-aws-vpc-managed
+
+# Badges to display
+badges: []
+
+# Short description of this project
+description: |-
+
+  This is a terraform module that creates public and private subnets with
+  optional nat instances or gateways, but it does not create the VPC. It is
+  designed to be used with AWS Control Tower managed VPCs.
+
+introduction: |-
+
+  The VPC, nat-gateway, and nat-instance submodules are based off of
+  Cloudposse's  [vpc](https://github.com/cloudposse/terraform-aws-vpc)  and
+  [dynamic-subnets](https://github.com/cloudposse/terraform-aws-dynamic-subnets)
+  modules.
+
+# How to use this project
+usage: |-
+
+  ```hcl
+  module "vpc" {
+    source = "git::https://gitlab.com/guardianproject-ops/terraform-aws-vpc-managed?ref=master"
+
+    packer_subnet_cidr_block = "10.0.0.0/24"
+    nat_subnet_cidr_block    = "10.0.1.0/24"
+  }
+
+  ```
+
+related: []
+
+include:
+  - "docs/terraform.md"
+
+funded_by_cdr: false
+copyrights:
+  - name: "The Guardian Project"
+    url: "https://guardianproject.info"
+    year: "2021"
+  - name: "Cloud Posse, LLC"
+    url: "https://cloudposse.com"
+    year: "2017"
+
+# Contributors to this project
+contributors:
+  - name: "Abel Luck"
+    gitlab: "abelxluck"
+    gravatar: 0f605397e0ead93a68e1be26dc26481a
